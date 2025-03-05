@@ -11,7 +11,7 @@
         },
         methods: {
             alert() {
-                alert("You've clicked the button");
+                alert("Hey there!");
             },
             handleCart(type) {
                 if (type) {
