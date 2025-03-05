@@ -21,8 +21,7 @@
             };
         },
         methods: {
-            handleSubmission(event) {
-                event.preventDefault();
+            handleSubmission() {
                 alert('Form Submitted!');
             },
         },
@@ -41,7 +40,7 @@
                     </div>
 
                     <div class="card-body">
-                        <form @submit="handleSubmission">
+                        <form @submit.prevent="handleSubmission">
                             <div class="row">
                                 <div class="col-12 my-2">
                                     <label for="name" class="form-label">Name</label>
@@ -50,7 +49,7 @@
                                         class="form-control form-control-lg"
                                         name="name"
                                         placeholder="Enter your name"
-                                        v-model.trim="formValues.name"
+                                        v-model.trim.lazy="formValues.name"
                                     />
                                 </div>
 
@@ -61,7 +60,7 @@
                                         class="form-control form-control-lg"
                                         name="email"
                                         placeholder="Enter your email"
-                                        v-model="formValues.email"
+                                        v-model.lazy="formValues.email"
                                     />
                                 </div>
 
