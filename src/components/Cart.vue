@@ -39,9 +39,10 @@
                 return subTotal;
             },
             calculateTotal() {
-                this.calculateSubTotal;
+                let totalPrice = 0;
+                totalPrice = this.calculateSubTotal * (this.tax / 100);
 
-                return 0;
+                return totalPrice;
             },
         },
     };
@@ -54,10 +55,7 @@
         <!-- Cart Table -->
         <div class="row">
             <div class="col-lg-8">
-                <table
-                    class="table table-bordered align-middle"
-                    v-if="products.length"
-                >
+                <table class="table table-bordered align-middle" v-if="products.length">
                     <thead class="table-dark">
                         <tr>
                             <th>Product</th>
@@ -119,7 +117,7 @@
                             <span>Tax (10%):</span> <strong>$1.00</strong>
                         </p>
                         <p class="d-flex justify-content-between">
-                            <span>Total:</span> <strong>$11.00</strong>
+                            <span>Total:</span> <strong>{{ '$' + calculateTotal }}</strong>
                         </p>
                         <button class="btn btn-success w-100">Proceed to Checkout</button>
                     </div>
