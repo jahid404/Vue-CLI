@@ -6,6 +6,15 @@ import Methods from '@/components/Methods.vue'
 import NProgress from 'nprogress'
 import { createRouter, createWebHistory } from 'vue-router'
 
+NProgress.configure({
+  minimum: 0.1,
+  easing: 'ease',
+  speed: 500,
+  showSpinner: false,
+  trickleSpeed: 200,
+  parent: 'body',
+});
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
