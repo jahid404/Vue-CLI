@@ -35,6 +35,11 @@
                 },
             };
         },
+        computed: {
+            calculateSubTotal() {
+                return 0;
+            },
+        },
     };
 </script>
 
@@ -45,7 +50,10 @@
         <!-- Cart Table -->
         <div class="row">
             <div class="col-lg-8">
-                <table class="table table-bordered align-middle" v-if="cart.products.length">
+                <table
+                    class="table table-bordered align-middle"
+                    v-if="cart.products.length"
+                >
                     <thead class="table-dark">
                         <tr>
                             <th>Product</th>
@@ -56,13 +64,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr v-for="product in cart.products" :key="product.id">
                             <td>
                                 <div class="d-flex align-items-center">
-                                    <span>Product Name</span>
+                                    <span>{{ product.name }}</span>
                                 </div>
                             </td>
-                            <td>$10.00</td>
+                            <td>{{ '$' + product.price }}</td>
                             <td>
                                 <div class="input-group input-group-sm">
                                     <button class="btn btn-outline-secondary minus-btn">
