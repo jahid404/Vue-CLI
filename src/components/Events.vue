@@ -5,6 +5,8 @@
             return {
                 initial_items: 0,
                 mouse_over_text: 'Mouse over on me!',
+                x_pos: 0,
+                y_pos: 0,
             };
         },
         methods: {
@@ -28,7 +30,8 @@
                 }
             },
             cursorPosition(event) {
-                console.log(event);
+                this.x_pos = event.clientX;
+                this.y_pos = event.clientY;
             },
         },
     };
@@ -86,11 +89,12 @@
                 <div class="card">
                     <div class="card-header bg-white">
                         <h4 class="card-title text-center">Cursor Position</h4>
+                        <p class="text-center">({{ x_pos + ', ' + y_pos }})</p>
                     </div>
                     <div
                         class="card-body bg-secondary-subtle"
                         style="height: 300px"
-                        @mouseover="cursorPosition"
+                        @mousemove="cursorPosition"
                     ></div>
                 </div>
             </div>
