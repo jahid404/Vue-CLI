@@ -45,7 +45,7 @@
         <!-- Cart Table -->
         <div class="row">
             <div class="col-lg-8">
-                <table class="table table-bordered align-middle">
+                <table class="table table-bordered align-middle" v-if="cart.products.length">
                     <thead class="table-dark">
                         <tr>
                             <th>Product</th>
@@ -56,7 +56,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Sample Cart Item -->
                         <tr>
                             <td>
                                 <div class="d-flex align-items-center">
@@ -87,12 +86,10 @@
                                 </button>
                             </td>
                         </tr>
-                        <!-- More items can be dynamically added -->
                     </tbody>
                 </table>
 
-                <!-- Empty Cart Message -->
-                <div class="alert alert-warning text-center d-none" id="emptyCartMsg">
+                <div class="alert alert-warning text-center" v-else>
                     Your cart is empty.
                 </div>
             </div>
