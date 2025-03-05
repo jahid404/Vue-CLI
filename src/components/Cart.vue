@@ -49,7 +49,7 @@
                     subTotal += product.price * product.quantity;
                 });
 
-                return subTotal;
+                return parseFloat(subTotal.toFixed(2));
             },
             // calculate tax amount
             calculateTaxAmount() {
