@@ -41,6 +41,11 @@
                             >Form</router-link
                         >
                     </li>
+                    <li class="nav-item">
+                        <router-link class="nav-link" :to="{ name: 'cart' }"
+                            >Cart</router-link
+                        >
+                    </li>
                 </ul>
             </div>
         </div>
