@@ -27,6 +27,9 @@
                     this.mouse_over_text = 'Ohh! You left me!';
                 }
             },
+            cursorPosition() {
+                console.log(this);
+            },
         },
     };
 </script>
@@ -84,7 +87,11 @@
                     <div class="card-header bg-white">
                         <h4 class="card-title text-center">Cursor Position</h4>
                     </div>
-                    <div class="card-body bg-light" style="height: 300px"></div>
+                    <div
+                        class="card-body bg-secondary-subtle"
+                        style="height: 300px"
+                        @mouseover="cursorPosition"
+                    ></div>
                 </div>
             </div>
         </div>
