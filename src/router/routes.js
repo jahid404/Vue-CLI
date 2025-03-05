@@ -2,15 +2,6 @@ import HomePage from '@/components/ HomePage.vue';
 import NProgress from 'nprogress'
 import { createRouter, createWebHistory } from 'vue-router'
 
-NProgress.configure({
-  minimum: 0.1,
-  easing: 'ease',
-  speed: 500,
-  showSpinner: false,
-  trickleSpeed: 200,
-  parent: 'body',
-});
-
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -47,13 +38,21 @@ const router = createRouter({
   ],
 })
 
+// nprogress config & bind with router
+NProgress.configure({
+  minimum: 0.1,
+  easing: 'ease',
+  speed: 500,
+  showSpinner: false,
+  trickleSpeed: 200,
+  parent: 'body',
+});
 router.beforeResolve((to, from, next) => {
   if (to.name) {
     NProgress.start();
   }
   next();
 })
-
 router.afterEach(() => {
   NProgress.done();
 })
