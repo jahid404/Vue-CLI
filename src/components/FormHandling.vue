@@ -1,5 +1,26 @@
 <script>
-    export default { name: 'FormHandling' };
+    export default {
+        name: 'FormHandling',
+        data() {
+            return {
+                formValues: {
+                    name: '',
+                    email: '',
+                    password: '',
+                    phone: '',
+                    dob: '',
+                    gender: '',
+                    bio: '',
+                    profile_picture: '',
+                    experience: '',
+                    favorite_color: '',
+                    hobbies: [],
+                    subscription: '',
+                    terms: '',
+                },
+            };
+        },
+    };
 </script>
 
 <template>
@@ -7,12 +28,14 @@
         <h3>Form Handling</h3>
 
         <div class="row justify-content-center">
-            <div class="col-12 col-md-8 col-lg-6 col-xxl-5">
-                <div class="card text-left">
+            <div class="col-12 col-md-5">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <h5 class="card-title text-center">Register New Account</h5>
+                    </div>
+
                     <div class="card-body">
                         <div class="row">
-                            <h5 class="text-center">Register New Account</h5>
-
                             <div class="col-12 my-2">
                                 <label for="name" class="form-label">Name</label>
                                 <input
@@ -20,6 +43,7 @@
                                     class="form-control form-control-lg"
                                     name="name"
                                     placeholder="Enter your name"
+                                    v-model="formValues.name"
                                 />
                             </div>
 
@@ -30,6 +54,7 @@
                                     class="form-control form-control-lg"
                                     name="email"
                                     placeholder="Enter your email"
+                                    v-model="formValues.email"
                                 />
                             </div>
 
@@ -40,6 +65,7 @@
                                     class="form-control form-control-lg"
                                     name="password"
                                     placeholder="Enter your password"
+                                    v-model="formValues.password"
                                 />
                             </div>
 
@@ -50,6 +76,7 @@
                                     class="form-control form-control-lg"
                                     name="phone"
                                     placeholder="Enter your phone number"
+                                    v-model="formValues.phone"
                                 />
                             </div>
 
@@ -59,12 +86,17 @@
                                     type="date"
                                     class="form-control form-control-lg"
                                     name="dob"
+                                    v-model="formValues.dob"
                                 />
                             </div>
 
                             <div class="col-12 my-2">
                                 <label for="gender" class="form-label">Gender</label>
-                                <select class="form-select form-control-lg" name="gender">
+                                <select
+                                    class="form-select form-control-lg"
+                                    name="gender"
+                                    v-model="formValues.gender"
+                                >
                                     <option selected disabled>Select Gender</option>
                                     <option value="male">Male</option>
                                     <option value="female">Female</option>
@@ -79,6 +111,7 @@
                                     name="bio"
                                     rows="3"
                                     placeholder="Tell us about yourself"
+                                    v-model="formValues.bio"
                                 ></textarea>
                             </div>
 
@@ -102,6 +135,7 @@
                                     min="0"
                                     max="50"
                                     placeholder="Enter experience in years"
+                                    v-model="formValues.experience"
                                 />
                             </div>
 
@@ -112,6 +146,7 @@
                                     class="form-control form-control-lg"
                                     name="favorite_color"
                                     value="#ff0000"
+                                    v-model="formValues.favorite_color"
                                 />
                             </div>
 
@@ -122,6 +157,7 @@
                                 <select
                                     class="form-select form-control-lg"
                                     name="hobbies[]"
+                                    v-model="formValues.hobbies"
                                     multiple
                                 >
                                     <option value="reading">Reading</option>
@@ -145,6 +181,7 @@
                                         name="subscription"
                                         value="free"
                                         id="free"
+                                        v-model="formValues.subscription"
                                     />
                                     <label class="form-check-label" for="free"
                                         >Free Plan</label
@@ -157,6 +194,7 @@
                                         name="subscription"
                                         value="premium"
                                         id="premium"
+                                        v-model="formValues.subscription"
                                     />
                                     <label class="form-check-label" for="premium"
                                         >Premium Plan</label
@@ -171,6 +209,7 @@
                                         type="checkbox"
                                         name="terms"
                                         id="terms"
+                                        v-model="formValues.terms"
                                     />
                                     <label class="form-check-label" for="terms"
                                         >I agree to the terms and conditions</label
@@ -184,6 +223,17 @@
                                 </button>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-5">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <h5 class="card-title text-center">Form Response</h5>
+                    </div>
+                    <div class="card-body bg-secondary-subtle">
+                        <pre>{{ JSON.stringify(formValues, null, 2) }}</pre>
                     </div>
                 </div>
             </div>
