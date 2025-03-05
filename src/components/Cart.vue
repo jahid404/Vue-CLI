@@ -29,20 +29,35 @@
                 tax: 15,
             };
         },
+        methods: {
+            // increment product quantity
+            increaseQuantity(product) {
+                product.quantity++;
+            },
+            // decrement product quantity
+            decreaseQuantity(product) {
+                if (product.quantity > 1) {
+                    product.quantity--;
+                }
+            },
+        },
         computed: {
+            // calculate subtotal of all items
             calculateSubTotal() {
                 let subTotal = 0;
                 this.products.forEach((product) => {
-                    subTotal += (product.price * product.quantity);
+                    subTotal += product.price * product.quantity;
                 });
 
                 return subTotal;
             },
+            // calculate tax amount
             calculateTaxAmount() {
                 let taxAmount = 0;
                 taxAmount = this.calculateSubTotal * (this.tax / 100);
                 return parseFloat(taxAmount.toFixed(2));
             },
+            // calculate total price after tax
             calculateTotal() {
                 let totalPrice = 0;
                 totalPrice = this.calculateSubTotal + this.calculateTaxAmount;
@@ -80,21 +95,35 @@
                             <td>{{ '$' + product.price }}</td>
                             <td>
                                 <div class="input-group input-group-sm">
-                                    <button class="btn btn-outline-secondary minus-btn">
+                                    <button
+                                        class="btn btn-outline-secondary minus-btn"
+                                        @click="decreaseQuantity(product)"
+                                    >
                                         −
                                     </button>
                                     <input
                                         type="text"
                                         class="form-control text-center qty-input"
                                         :value="product.quantity"
+                                        disabled
                                         style="max-width: 50px"
                                     />
-                                    <button class="btn btn-outline-secondary plus-btn">
+                                    <button
+                                        class="btn btn-outline-secondary plus-btn"
+                                        @click="increaseQuantity(product)"
+                                    >
                                         +
                                     </button>
                                 </div>
                             </td>
-                            <td>{{ '$' + parseFloat(product.price * product.quantity).toFixed(2) }}</td>
+                            <td>
+                                {{
+                                    '$' +
+                                    parseFloat(product.price * product.quantity).toFixed(
+                                        2
+                                    )
+                                }}
+                            </td>
                             <td>
                                 <button class="btn btn-danger btn-sm remove-btn">
                                     Remove
