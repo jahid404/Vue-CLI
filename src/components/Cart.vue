@@ -37,7 +37,12 @@
         },
         computed: {
             calculateSubTotal() {
-                return 0;
+                let subTotal = 0;
+                this.cart.products.forEach((product) => {
+                    subTotal += product.price;
+                });
+
+                return subTotal;
             },
         },
     };
