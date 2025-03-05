@@ -81,9 +81,10 @@
 
             <div class="col-12 my-2">
                 <div class="card">
-                    <div class="card-body bg-light" style="height: 300px;">
+                    <div class="card-header bg-white">
                         <h4 class="card-title text-center">Cursor Position</h4>
                     </div>
+                    <div class="card-body bg-light" style="height: 300px"></div>
                 </div>
             </div>
         </div>
