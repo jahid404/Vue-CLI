@@ -3,6 +3,7 @@ import Events from '@/components/Events.vue'
 import FormHandling from '@/components/FormHandling.vue'
 import ListRender from '@/components/ListRender.vue'
 import Methods from '@/components/Methods.vue'
+import NProgress from 'nprogress'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
@@ -34,6 +35,17 @@ const router = createRouter({
       component: FormHandling
     },
   ],
+})
+
+router.beforeResolve((to, from, next) => {
+  if (to.name) {
+    NProgress.start();
+  }
+  next();
+})
+
+router.afterEach(() => {
+  NProgress.done();
 })
 
 export default router
