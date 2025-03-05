@@ -27,8 +27,8 @@
                     this.mouse_over_text = 'Ohh! You left me!';
                 }
             },
-            cursorPosition() {
-                console.log(this);
+            cursorPosition(event) {
+                console.log(event);
             },
         },
     };
