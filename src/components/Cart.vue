@@ -33,16 +33,21 @@
             calculateSubTotal() {
                 let subTotal = 0;
                 this.products.forEach((product) => {
-                    subTotal += product.price;
+                    subTotal += (product.price * product.quantity);
                 });
 
                 return subTotal;
             },
+            calculateTaxAmount() {
+                let taxAmount = 0;
+                taxAmount = this.calculateSubTotal * (this.tax / 100);
+                return parseFloat(taxAmount.toFixed(2));
+            },
             calculateTotal() {
                 let totalPrice = 0;
-                totalPrice = this.calculateSubTotal * (this.tax / 100);
+                totalPrice = this.calculateSubTotal + this.calculateTaxAmount;
 
-                return totalPrice;
+                return totalPrice.toFixed(2);
             },
         },
     };
@@ -81,7 +86,7 @@
                                     <input
                                         type="text"
                                         class="form-control text-center qty-input"
-                                        value="1"
+                                        :value="product.quantity"
                                         style="max-width: 50px"
                                     />
                                     <button class="btn btn-outline-secondary plus-btn">
@@ -89,7 +94,7 @@
                                     </button>
                                 </div>
                             </td>
-                            <td>$10.00</td>
+                            <td>{{ '$' + parseFloat(product.price * product.quantity).toFixed(2) }}</td>
                             <td>
                                 <button class="btn btn-danger btn-sm remove-btn">
                                     Remove
@@ -114,10 +119,12 @@
                             <strong>{{ '$' + calculateSubTotal }}</strong>
                         </p>
                         <p class="d-flex justify-content-between">
-                            <span>Tax (10%):</span> <strong>$1.00</strong>
+                            <span>Tax ({{ tax + '%' }}):</span>
+                            <strong>{{ '$' + calculateTaxAmount }}</strong>
                         </p>
                         <p class="d-flex justify-content-between">
-                            <span>Total:</span> <strong>{{ '$' + calculateTotal }}</strong>
+                            <span>Total:</span>
+                            <strong>{{ '$' + calculateTotal }}</strong>
                         </p>
                         <button class="btn btn-success w-100">Proceed to Checkout</button>
                     </div>
