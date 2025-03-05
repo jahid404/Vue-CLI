@@ -95,6 +95,7 @@
                         class="card-body bg-secondary-subtle"
                         style="height: 300px"
                         @mousemove="cursorPosition"
+                        @mouseleave="(x_pos = 0), (y_pos = 0)"
                     ></div>
                 </div>
             </div>
