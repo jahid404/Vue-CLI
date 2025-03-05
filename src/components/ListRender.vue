@@ -37,7 +37,7 @@
 </script>
 
 <template>
-    <div class="container my-3">
+    <div class="container my-5">
         <h3>List Rendering</h3>
 
         <div class="row g-5">

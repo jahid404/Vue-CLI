@@ -36,6 +36,11 @@
                             >Events</router-link
                         >
                     </li>
+                    <li class="nav-item">
+                        <router-link class="nav-link" :to="{ name: 'form-handling' }"
+                            >Form</router-link
+                        >
+                    </li>
                 </ul>
             </div>
         </div>

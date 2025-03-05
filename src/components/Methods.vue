@@ -13,7 +13,7 @@
 </script>
 
 <template>
-    <div class="container my-3">
+    <div class="container my-5">
         <h3>Methods</h3>
 
         <p>{{ randomNum() }}</p>

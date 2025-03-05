@@ -1,5 +1,6 @@
 import HomePage from '@/components/ HomePage.vue'
 import Events from '@/components/Events.vue'
+import FormHandling from '@/components/FormHandling.vue'
 import ListRender from '@/components/ListRender.vue'
 import Methods from '@/components/Methods.vue'
 import { createRouter, createWebHistory } from 'vue-router'
@@ -26,6 +27,11 @@ const router = createRouter({
       path: '/events',
       name: 'events',
       component: Events
+    },
+    {
+      path: '/form-handling',
+      name: 'form-handling',
+      component: FormHandling
     },
   ],
 })
