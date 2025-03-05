@@ -36,7 +36,7 @@
         <h3>Event Handling</h3>
 
         <div class="row">
-            <div class="col-md-6 col-lg-4">
+            <div class="col-md-6 col-lg-4 my-2">
                 <div class="card h-100">
                     <div class="card-body text-center">
                         <h4 class="card-title text-center">Alert</h4>
@@ -46,7 +46,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4">
+            <div class="col-md-6 col-lg-4 my-2">
                 <div class="card h-100">
                     <div class="card-body text-center">
                         <h4 class="card-title text-center">{{ initial_items }}</h4>
@@ -66,7 +66,7 @@
                 </div>
             </div>
 
-            <div class="col-md-6 col-lg-4">
+            <div class="col-md-6 col-lg-4 my-2">
                 <div
                     class="card h-100"
                     @mouseenter="mouseOver(true)"
@@ -75,6 +75,14 @@
                     <div class="card-body text-center">
                         <h4 class="card-title text-center">Mouse Over</h4>
                         <p class="text-center">{{ mouse_over_text }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 my-2">
+                <div class="card">
+                    <div class="card-body bg-light" style="height: 300px;">
+                        <h4 class="card-title text-center">Cursor Position</h4>
                     </div>
                 </div>
             </div>
