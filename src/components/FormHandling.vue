@@ -50,7 +50,7 @@
                                         class="form-control form-control-lg"
                                         name="name"
                                         placeholder="Enter your name"
-                                        v-model="formValues.name"
+                                        v-model.trim="formValues.name"
                                     />
                                 </div>
 
