@@ -3,46 +3,45 @@
         name: 'CartComponent',
         data() {
             return {
-                cart: {
-                    products: [
-                        {
-                            id: 1,
-                            name: 'Wireless Headphones',
-                            price: 59.99,
-                            quantity: 2,
-                            total: 119.98,
-                        },
-                        {
-                            id: 2,
-                            name: 'Smartphone Stand',
-                            price: 15.99,
-                            quantity: 1,
-                            total: 15.99,
-                        },
-                        {
-                            id: 3,
-                            name: 'Gaming Mouse',
-                            price: 29.99,
-                            quantity: 1,
-                            total: 29.99,
-                        },
-                    ],
-                    summary: {
-                        subtotal: 165.96,
-                        tax: 16.6,
-                        total: 182.56,
+                products: [
+                    {
+                        id: 1,
+                        name: 'Wireless Headphones',
+                        price: 59.99,
+                        quantity: 2,
+                        total: 119.98,
                     },
-                },
+                    {
+                        id: 2,
+                        name: 'Smartphone Stand',
+                        price: 15.99,
+                        quantity: 1,
+                        total: 15.99,
+                    },
+                    {
+                        id: 3,
+                        name: 'Gaming Mouse',
+                        price: 29.99,
+                        quantity: 1,
+                        total: 29.99,
+                    },
+                ],
+                tax: 15,
             };
         },
         computed: {
             calculateSubTotal() {
                 let subTotal = 0;
-                this.cart.products.forEach((product) => {
+                this.products.forEach((product) => {
                     subTotal += product.price;
                 });
 
                 return subTotal;
+            },
+            calculateTotal() {
+                this.calculateSubTotal;
+
+                return 0;
             },
         },
     };
@@ -57,7 +56,7 @@
             <div class="col-lg-8">
                 <table
                     class="table table-bordered align-middle"
-                    v-if="cart.products.length"
+                    v-if="products.length"
                 >
                     <thead class="table-dark">
                         <tr>
@@ -69,7 +68,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="product in cart.products" :key="product.id">
+                        <tr v-for="product in products" :key="product.id">
                             <td>
                                 <div class="d-flex align-items-center">
                                     <span>{{ product.name }}</span>
@@ -113,7 +112,8 @@
                     <div class="card-body">
                         <h5 class="card-title">Order Summary</h5>
                         <p class="d-flex justify-content-between">
-                            <span>Subtotal:</span> <strong>$10.00</strong>
+                            <span>Subtotal:</span>
+                            <strong>{{ '$' + calculateSubTotal }}</strong>
                         </p>
                         <p class="d-flex justify-content-between">
                             <span>Tax (10%):</span> <strong>$1.00</strong>
