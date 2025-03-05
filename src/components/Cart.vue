@@ -26,11 +26,6 @@
                         <tr>
                             <td>
                                 <div class="d-flex align-items-center">
-                                    <img
-                                        src="https://via.placeholder.com/50"
-                                        class="me-2 rounded"
-                                        alt="Product"
-                                    />
                                     <span>Product Name</span>
                                 </div>
                             </td>
