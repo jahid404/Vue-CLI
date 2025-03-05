@@ -85,7 +85,7 @@
                                         class="form-control form-control-lg"
                                         name="phone"
                                         placeholder="Enter your phone number"
-                                        v-model.number="formValues.phone"
+                                        v-model="formValues.phone"
                                     />
                                 </div>
 
