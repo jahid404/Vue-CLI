@@ -40,11 +40,11 @@
                     product.quantity--;
                 }
             },
-            // remove product from cart
-            removeProduct(id) {
-                return (this.products = this.products.filter(
-                    (product) => product.id !== id
-                ));
+            removeProduct(productId) {
+                const product = this.products.find((product) => product.id === productId);
+                if (product) {
+                    this.products.pop(product);
+                }
             },
         },
         computed: {
@@ -133,7 +133,7 @@
                             <td>
                                 <button
                                     class="btn btn-danger btn-sm remove-btn"
-                                    @click="product.id"
+                                    @click="removeProduct(product.id)"
                                 >
                                     Remove
                                 </button>
