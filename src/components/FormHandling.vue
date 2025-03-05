@@ -85,7 +85,7 @@
                                         class="form-control form-control-lg"
                                         name="phone"
                                         placeholder="Enter your phone number"
-                                        v-model="formValues.phone"
+                                        v-model.number="formValues.phone"
                                     />
                                 </div>
 
@@ -146,7 +146,7 @@
                                         min="0"
                                         max="50"
                                         placeholder="Enter experience in years"
-                                        v-model="formValues.experience"
+                                        v-model.number="formValues.experience"
                                     />
                                 </div>
 
