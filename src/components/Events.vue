@@ -30,8 +30,8 @@
                 }
             },
             cursorPosition(event) {
-                this.x_pos = event.clientX;
-                this.y_pos = event.clientY;
+                this.x_pos = event.clientX + 'px';
+                this.y_pos = event.clientY + 'px';
             },
         },
     };
