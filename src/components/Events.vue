@@ -4,6 +4,7 @@
         data() {
             return {
                 initial_items: 0,
+                mouse_over_text: 'Mouse over on me!',
             };
         },
         methods: {
@@ -17,6 +18,13 @@
                     if (this.initial_items > 0) {
                         this.initial_items--;
                     }
+                }
+            },
+            mouseOver(is_enter = false) {
+                if (is_enter) {
+                    this.mouse_over_text = 'Hey! Did you just hover on me?';
+                } else {
+                    this.mouse_over_text = 'Ohh! You left me!';
                 }
             },
         },
@@ -54,6 +62,19 @@
                         >
                             Increment +
                         </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div
+                    class="card h-100"
+                    @mouseenter="mouseOver(true)"
+                    @mouseleave="mouseOver(false)"
+                >
+                    <div class="card-body text-center">
+                        <h4 class="card-title text-center">Mouse Over</h4>
+                        <p class="text-center">{{ mouse_over_text }}</p>
                     </div>
                 </div>
             </div>
