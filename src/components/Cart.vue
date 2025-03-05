@@ -1,6 +1,40 @@
 <script>
     export default {
         name: 'CartComponent',
+        data() {
+            return {
+                cart: {
+                    products: [
+                        {
+                            id: 1,
+                            name: 'Wireless Headphones',
+                            price: 59.99,
+                            quantity: 2,
+                            total: 119.98,
+                        },
+                        {
+                            id: 2,
+                            name: 'Smartphone Stand',
+                            price: 15.99,
+                            quantity: 1,
+                            total: 15.99,
+                        },
+                        {
+                            id: 3,
+                            name: 'Gaming Mouse',
+                            price: 29.99,
+                            quantity: 1,
+                            total: 29.99,
+                        },
+                    ],
+                    summary: {
+                        subtotal: 165.96,
+                        tax: 16.6,
+                        total: 182.56,
+                    },
+                },
+            };
+        },
     };
 </script>
 
