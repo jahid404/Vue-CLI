@@ -50,12 +50,14 @@
         computed: {
             // calculate subtotal of all items
             calculateSubTotal() {
-                let subTotal = 0;
-                this.products.forEach((product) => {
-                    subTotal += product.price * product.quantity;
-                });
-
-                return parseFloat(subTotal.toFixed(2));
+                return parseFloat(
+                    this.products
+                        .reduce(
+                            (sum, product) => sum + product.price * product.quantity,
+                            0
+                        )
+                        .toFixed(2)
+                );
             },
             // calculate tax amount
             calculateTaxAmount() {
@@ -99,7 +101,9 @@
                                         <span>{{ product.name }}</span>
                                     </div>
                                 </td>
-                                <td class="text-nowrap text-center">{{ '$' + product.price }}</td>
+                                <td class="text-nowrap text-center">
+                                    {{ '$' + product.price }}
+                                </td>
                                 <td class="text-nowrap">
                                     <div
                                         class="input-group input-group-sm d-flex justify-content-center"

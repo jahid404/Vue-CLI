@@ -11,7 +11,7 @@ const router = createRouter({
       component: HomePage
     },
     {
-      path: '/list-render',
+      path: '/list',
       name: 'list-render',
       component: () => import('@/components/ListRender.vue')
     },
@@ -26,7 +26,7 @@ const router = createRouter({
       component: () => import('@/components/Events.vue')
     },
     {
-      path: '/form-handling',
+      path: '/form',
       name: 'form-handling',
       component: () => import('@/components/FormHandling.vue')
     },
