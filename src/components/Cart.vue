@@ -85,22 +85,22 @@
                     <table class="table table-bordered align-middle">
                         <thead class="table-dark">
                             <tr>
-                                <th>Product</th>
-                                <th>Price</th>
-                                <th>Quantity</th>
-                                <th>Total</th>
-                                <th>Action</th>
+                                <th class="text-nowrap">Product</th>
+                                <th class="text-nowrap">Price</th>
+                                <th class="text-nowrap">Quantity</th>
+                                <th class="text-nowrap">Total</th>
+                                <th class="text-nowrap">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr v-for="product in products" :key="product.id">
-                                <td>
+                                <td class="text-nowrap">
                                     <div class="d-flex align-items-center">
                                         <span>{{ product.name }}</span>
                                     </div>
                                 </td>
-                                <td>{{ '$' + product.price }}</td>
-                                <td>
+                                <td class="text-nowrap">{{ '$' + product.price }}</td>
+                                <td class="text-nowrap">
                                     <div class="input-group input-group-sm">
                                         <button
                                             class="btn btn-outline-secondary minus-btn"
@@ -123,7 +123,7 @@
                                         </button>
                                     </div>
                                 </td>
-                                <td>
+                                <td class="text-nowrap">
                                     {{
                                         '$' +
                                         parseFloat(
@@ -131,7 +131,7 @@
                                         ).toFixed(2)
                                     }}
                                 </td>
-                                <td>
+                                <td class="text-nowrap">
                                     <button
                                         class="btn btn-danger btn-sm remove-btn"
                                         @click="removeProduct(product.id)"
