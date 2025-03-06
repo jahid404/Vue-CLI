@@ -22,7 +22,7 @@
                         >
                     </li>
                     <li class="nav-item">
-                        <router-link class="nav-link" :to="{ name: 'list-render' }"
+                        <router-link class="nav-link" :to="{ name: 'list' }"
                             >List</router-link
                         >
                     </li>
@@ -37,7 +37,7 @@
                         >
                     </li>
                     <li class="nav-item">
-                        <router-link class="nav-link" :to="{ name: 'form-handling' }"
+                        <router-link class="nav-link" :to="{ name: 'form' }"
                             >Form</router-link
                         >
                     </li>

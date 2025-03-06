@@ -12,7 +12,7 @@ const router = createRouter({
     },
     {
       path: '/list',
-      name: 'list-render',
+      name: 'list',
       component: () => import('@/components/ListRender.vue')
     },
     {
@@ -27,7 +27,7 @@ const router = createRouter({
     },
     {
       path: '/form',
-      name: 'form-handling',
+      name: 'form',
       component: () => import('@/components/FormHandling.vue')
     },
     {
