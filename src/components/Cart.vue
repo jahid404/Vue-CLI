@@ -80,67 +80,69 @@
 
         <!-- Cart Table -->
         <div class="row">
-            <div class="col-lg-8">
-                <table class="table table-bordered align-middle" v-if="products.length">
-                    <thead class="table-dark">
-                        <tr>
-                            <th>Product</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
-                            <th>Total</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr v-for="product in products" :key="product.id">
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <span>{{ product.name }}</span>
-                                </div>
-                            </td>
-                            <td>{{ '$' + product.price }}</td>
-                            <td>
-                                <div class="input-group input-group-sm">
+            <div class="col-12 col-lg-8">
+                <div class="table-responsive" v-if="products.length">
+                    <table class="table table-bordered align-middle">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Product</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="product in products" :key="product.id">
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <span>{{ product.name }}</span>
+                                    </div>
+                                </td>
+                                <td>{{ '$' + product.price }}</td>
+                                <td>
+                                    <div class="input-group input-group-sm">
+                                        <button
+                                            class="btn btn-outline-secondary minus-btn"
+                                            @click="decreaseQuantity(product)"
+                                        >
+                                            −
+                                        </button>
+                                        <input
+                                            type="text"
+                                            class="form-control text-center qty-input"
+                                            :value="product.quantity"
+                                            disabled
+                                            style="max-width: 50px"
+                                        />
+                                        <button
+                                            class="btn btn-outline-secondary plus-btn"
+                                            @click="increaseQuantity(product)"
+                                        >
+                                            +
+                                        </button>
+                                    </div>
+                                </td>
+                                <td>
+                                    {{
+                                        '$' +
+                                        parseFloat(
+                                            product.price * product.quantity
+                                        ).toFixed(2)
+                                    }}
+                                </td>
+                                <td>
                                     <button
-                                        class="btn btn-outline-secondary minus-btn"
-                                        @click="decreaseQuantity(product)"
+                                        class="btn btn-danger btn-sm remove-btn"
+                                        @click="removeProduct(product.id)"
                                     >
-                                        −
+                                        Remove
                                     </button>
-                                    <input
-                                        type="text"
-                                        class="form-control text-center qty-input"
-                                        :value="product.quantity"
-                                        disabled
-                                        style="max-width: 50px"
-                                    />
-                                    <button
-                                        class="btn btn-outline-secondary plus-btn"
-                                        @click="increaseQuantity(product)"
-                                    >
-                                        +
-                                    </button>
-                                </div>
-                            </td>
-                            <td>
-                                {{
-                                    '$' +
-                                    parseFloat(product.price * product.quantity).toFixed(
-                                        2
-                                    )
-                                }}
-                            </td>
-                            <td>
-                                <button
-                                    class="btn btn-danger btn-sm remove-btn"
-                                    @click="removeProduct(product.id)"
-                                >
-                                    Remove
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
                 <div class="alert alert-warning text-center" v-else>
                     Your cart is empty.
