@@ -101,7 +101,9 @@
                                 </td>
                                 <td class="text-nowrap">{{ '$' + product.price }}</td>
                                 <td class="text-nowrap">
-                                    <div class="input-group input-group-sm">
+                                    <div
+                                        class=" d-flex justify-content-center align-items-center"
+                                    >
                                         <button
                                             class="btn btn-outline-secondary minus-btn"
                                             @click="decreaseQuantity(product)"
