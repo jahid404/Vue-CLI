@@ -7,11 +7,12 @@
                 mouse_over_text: 'Mouse over on me!',
                 x_pos: 0,
                 y_pos: 0,
+                current_vol_value: 50,
             };
         },
         methods: {
             alert() {
-                alert("Hey there!");
+                alert('Hey there!');
             },
             handleCart(type) {
                 if (type) {
@@ -32,6 +33,16 @@
             cursorPosition(event) {
                 this.x_pos = event.clientX + 'px';
                 this.y_pos = event.clientY + 'px';
+            },
+            trackVolume(event) {
+                this.current_vol_value = Number(event.target.value);
+            },
+        },
+        watch: {
+            current_vol_value(newVal) {
+                if (newVal == 80) {
+                    alert('Higher volume may damage your ears!');
+                }
             },
         },
     };
@@ -81,6 +92,24 @@
                     <div class="card-body text-center">
                         <h4 class="card-title text-center">Mouse Over</h4>
                         <p class="text-center">{{ mouse_over_text }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4 my-2">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <h4 class="card-title">Volume Tracker</h4>
+                        <input
+                            type="range"
+                            class="form-range mt-3"
+                            min="0"
+                            max="100"
+                            step="1"
+                            @input="trackVolume"
+                            v-model="current_vol_value"
+                        />
+                        <p class="mt-2">Volume: {{ current_vol_value }} %</p>
                     </div>
                 </div>
             </div>
