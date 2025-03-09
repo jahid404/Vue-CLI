@@ -40,7 +40,7 @@
         },
         watch: {
             current_vol_value(newVal, oldVal) {
-                if (newVal > oldVal && newVal == 80) {
+                if (newVal > oldVal && newVal > 80) {
                     alert('Higher volume may damage your ears!');
                 }
             },
