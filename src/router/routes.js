@@ -41,7 +41,7 @@ const routeList = [
   {
     path: "/watch",
     name: "watch",
-    component: () => import("@/pages/Events.vue"),
+    component: () => import("@/pages/Watch.vue"),
     routeName: "Watch",
     icon: "bi-eye",
   },
