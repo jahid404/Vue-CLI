@@ -1,4 +1,4 @@
-import HomePage from "@/components/ HomePage.vue";
+import HomePage from "@/pages/ HomePage.vue";
 import NProgress from "nprogress";
 import { createRouter, createWebHistory } from "vue-router";
 
@@ -13,35 +13,35 @@ const routeList = [
   {
     path: "/list",
     name: "list",
-    component: () => import("@/components/ListRender.vue"),
+    component: () => import("@/pages/ListRender.vue"),
     routeName: "List",
     icon: "bi-list",
   },
   {
     path: "/methods",
     name: "methods",
-    component: () => import("@/components/Methods.vue"),
+    component: () => import("@/pages/Methods.vue"),
     routeName: "Methods",
     icon: "bi-gear",
   },
   {
     path: "/events",
     name: "events",
-    component: () => import("@/components/Events.vue"),
+    component: () => import("@/pages/Events.vue"),
     routeName: "Events",
     icon: "bi-calendar-event",
   },
   {
     path: "/form",
     name: "form",
-    component: () => import("@/components/FormHandling.vue"),
+    component: () => import("@/pages/FormHandling.vue"),
     routeName: "Form",
     icon: "bi-file-text",
   },
   {
     path: "/cart",
     name: "cart",
-    component: () => import("@/components/Cart.vue"),
+    component: () => import("@/pages/Cart.vue"),
     routeName: "Cart",
     icon: "bi-cart",
   },
