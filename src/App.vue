@@ -1,5 +1,7 @@
 <script setup>
     import { RouterView, RouterLink } from 'vue-router';
+    import { routeList } from './router/routes';
+    console.log("Base URL:", import.meta.env.BASE_URL);
 </script>
 
 <template>
@@ -16,35 +18,14 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <router-link class="nav-link" :to="{ name: 'home' }"
-                            >Home</router-link
+                    <li v-for="route in routeList" :key="route.name" class="nav-item">
+                        <router-link
+                            v-if="route.name"
+                            class="nav-link"
+                            :to="{ name: route.name }"
                         >
-                    </li>
-                    <li class="nav-item">
-                        <router-link class="nav-link" :to="{ name: 'list' }"
-                            >List</router-link
-                        >
-                    </li>
-                    <li class="nav-item">
-                        <router-link class="nav-link" :to="{ name: 'methods' }"
-                            >Methods</router-link
-                        >
-                    </li>
-                    <li class="nav-item">
-                        <router-link class="nav-link" :to="{ name: 'events' }"
-                            >Events</router-link
-                        >
-                    </li>
-                    <li class="nav-item">
-                        <router-link class="nav-link" :to="{ name: 'form' }"
-                            >Form</router-link
-                        >
-                    </li>
-                    <li class="nav-item">
-                        <router-link class="nav-link" :to="{ name: 'cart' }"
-                            >Cart</router-link
-                        >
+                            {{ route.routeName }}
+                        </router-link>
                     </li>
                 </ul>
             </div>
