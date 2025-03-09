@@ -39,6 +39,13 @@ const routeList = [
     icon: "bi-file-text",
   },
   {
+    path: "/watch",
+    name: "watch",
+    component: () => import("@/pages/Events.vue"),
+    routeName: "Watch",
+    icon: "bi-eye",
+  },
+  {
     path: "/cart",
     name: "cart",
     component: () => import("@/pages/Cart.vue"),

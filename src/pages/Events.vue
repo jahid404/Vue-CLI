@@ -7,7 +7,8 @@
                 mouse_over_text: 'Mouse over on me!',
                 x_pos: 0,
                 y_pos: 0,
-                current_vol_value: 50,
+                current_vol_value: 0,
+                watch_text: 'Hey',
             };
         },
         methods: {
@@ -40,10 +41,16 @@
         },
         watch: {
             current_vol_value(newVal, oldVal) {
-                if (newVal > oldVal && newVal > 80) {
+                if (newVal > oldVal && newVal == 16) {
                     alert('Higher volume may damage your ears!');
                 }
             },
+            watch_text: {
+              handler(newVal){
+                console.log(`Watched: ${newVal}`);
+              },
+              immediate: true
+            }
         },
     };
 </script>
@@ -82,7 +89,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="col-md-6 col-lg-4 my-2">
                 <div
                     class="card h-100"
@@ -95,7 +101,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="col-md-6 col-lg-4 my-2">
                 <div class="card h-100">
                     <div class="card-body text-center">
@@ -104,12 +109,22 @@
                             type="range"
                             class="form-range mt-3"
                             min="0"
-                            max="100"
-                            step="1"
+                            max="20"
+                            step="2"
                             @input="trackVolume"
                             v-model="current_vol_value"
                         />
                         <p class="mt-2">Volume: {{ current_vol_value }} %</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 my-2">
+                <div
+                    class="card h-100">
+                    <div class="card-body text-center">
+                        <h4 class="card-title text-center">Watch Tracker</h4>
+                        <p class="text-center">View in console</p>
+                        <input v-model="watch_text" type="text" class="form-control" placeholder="Write anything..."/>
                     </div>
                 </div>
             </div>
