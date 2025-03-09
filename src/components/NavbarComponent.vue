@@ -25,6 +25,7 @@
                             v-if="route.name"
                             class="nav-link"
                             :to="{ name: route.name }"
+                            exact-active-class="active"
                         >
                             {{ route.routeName }}
                         </router-link>
