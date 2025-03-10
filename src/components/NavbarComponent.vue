@@ -5,6 +5,7 @@
     /* defineProps({
       brandName: String
     }) */
+    //  defineProps(['brandName']);
 </script>
 
 <script>
