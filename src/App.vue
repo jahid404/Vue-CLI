@@ -4,6 +4,6 @@
 </script>
 
 <template>
-    <Navbarcomponent brandName="DreamersDesire"/>
+    <Navbarcomponent brandName="DreamersDesire" class="shadow"/>
     <RouterView />
 </template>
