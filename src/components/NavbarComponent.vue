@@ -3,6 +3,13 @@
     import { routeList } from '@/router/routes';
 </script>
 
+<script>
+    export default {
+        name: 'NavbarComponent',
+        props: ['brandName'],
+    };
+</script>
+
 <template>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
