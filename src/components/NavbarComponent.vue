@@ -1,6 +1,16 @@
 <script setup>
     import { RouterLink } from 'vue-router';
     import { routeList } from '@/router/routes';
+
+    /* defineProps({
+      brandName: String
+    }) */
+</script>
+
+<script>
+    export default {
+        props: ['brandName'],
+    };
 </script>
 
 <template>
