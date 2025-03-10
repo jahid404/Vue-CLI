@@ -4,6 +4,6 @@
 </script>
 
 <template>
-    <Navbarcomponent />
+    <Navbarcomponent :brandName="VueCLI"/>
     <RouterView />
 </template>
