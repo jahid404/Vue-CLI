@@ -4,6 +4,6 @@
 </script>
 
 <template>
-    <Navbarcomponent brandName="VueCLI"/>
+    <Navbarcomponent brandName="DreamersDesire"/>
     <RouterView />
 </template>

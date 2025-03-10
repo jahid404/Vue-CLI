@@ -17,7 +17,7 @@
 <template>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <router-link class="navbar-brand" :to="{ name: 'home' }">
+            <router-link class="navbar-brand fw-bold" :to="{ name: 'home' }">
                 {{ brandName }}
             </router-link>
             <button
